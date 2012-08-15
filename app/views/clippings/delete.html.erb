@@ -1,0 +1,10 @@
+<% @page_title = 'Delete Clipping: #{@clipping.title}' %>
+<%= link_to('<< Back to List', {:action => 'list'}, :class => 'back-link') %>
+<h1 class="span12 ribbon">delete clipping</h1>
+<%= form_for(:clipping, :url => {:action => 'destroy', :id => @clipping.id}) do |f| -%>
+  <span>Are you sure you want to permanently delete this clipping?</span><br />
+  <span class="strong">"<%= @clipping.title %>"</span>
+  <div class="form-buttons">
+    <%= submit_tag('delete clipping', :class => 'button') %>
+  </div>
+<% end %>

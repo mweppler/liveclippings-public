@@ -1,0 +1,44 @@
+<% if @user.errors.any? %>
+  <div class="error_messages">
+    <h2>Form is invalid</h2>
+    <ul>
+      <% for message in @user.errors.full_messages %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+<table summary="User form fields" class="float-table">
+  <tr>
+    <th><%= f.label(:first_name) %></th>
+    <td><%= f.text_field(:first_name, :class => 'round', :placeholder => 'First Name') %></td>
+  </tr>
+  <tr>
+    <th><%= f.label(:last_name) %></th>
+    <td><%= f.text_field(:last_name, :class => 'round', :placeholder => 'Last Name') %></td>
+  </tr>
+  <tr>
+    <th><%= f.label(:email) %></th>
+    <td><%= f.text_field(:email, :class => 'round', :placeholder => 'Email') %></td>
+  </tr>
+  <tr>
+    <th><%= f.label(:username) %></th>
+    <td><%= f.text_field(:username, :class => 'round', :placeholder => 'Username') %> Try to keep it at around 8 characters...</td>
+  </tr>
+  <tr>
+    <th><%= f.label(:password) %></th>
+    <td><%= f.password_field(:password, :class => 'round', :placeholder => 'Password') %></td>
+  </tr>
+  <tr>
+    <th><%= f.label(:password_confirmation) %></th>
+    <td><%= f.password_field(:password_confirmation, :class => 'round', :placeholder => 'Confirm Password') %></td>
+  </tr>
+  <tr>
+    <th>Generate API Token?</th>
+    <td>
+      Yes <%= f.radio_button(:api_answer, :yes) %> | 
+      No  <%= f.radio_button(:api_answer, :no, :checked => true) %>
+    </td>
+  </tr>
+</table>
+<div class="clearfix"></div>

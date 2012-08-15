@@ -1,0 +1,38 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+en:
+  hello: "Hello world"    
+  activerecord:
+    models: 
+      admin_user: "Administrator"
+      clipping: "Clipping"
+      following: "Following"
+      stored_clipping: "Stored Clipping Content"
+      user: "Clipper"
+    attributes:
+      clipping:
+        user_id: "Clipper"
+        url: "Clipping Link"
+        title: "Clipping Title"
+        summary: "Clipping Summary"
+      following:
+        user_id: "Follower"
+        follow_id: "Followee"
+      stored_clipping:
+        clipping_id: "Clipping"
+        content: "Clipping Content"
+      user:
+        first_name: "First Name"
+        last_name: "Last Name"
+        email: "Email address"
+        username: "Username"
+    errors:
+      messages:
+        cannot_follow_yourself: "you cannot follow yourself."
+      models:
+        following:
+          attributes:
+            follow_id: "you cannot follow yourself."
+            user_id:
+              taken: "you cannot follow yourself."

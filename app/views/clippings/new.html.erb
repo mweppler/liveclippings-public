@@ -1,0 +1,48 @@
+<% @page_title = 'Create Clipping' %>
+<%= link_to('<< Back to List', {:action => 'list'}, :class => 'back-link') %>
+<h1 class="span12 ribbon">create clipping</h1>
+<%= form_tag(:action => 'create') do %>
+  <% if @clipping.errors.any? %>
+    <div class="error_messages">
+      <h2>please correct the following errors:</h2>
+      <ul>
+        <% for message in @clipping.errors.full_messages %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <table summary="clipping form fields" class="float-table">
+    <tr>
+      <th><%= label_tag(:content_type) %></th>
+      <td>
+        <%= radio_button_tag(:content_type, 'html') %> html
+        <%= radio_button_tag(:content_type, 'text') %> text
+      </td>
+    </tr>
+    <tr>
+      <th><%= label_tag(:url) %></th>
+      <td><%= text_field_tag(:url, '', :class => 'round') %></td>
+    </tr>
+    <tr>
+      <th><%= label_tag(:title) %></th>
+      <td><%= text_field_tag(:title, '', :class => 'round') %></td>
+    </tr>
+    <tr>
+      <th><%= label_tag(:summary) %></th>
+      <td><%= text_area_tag(:summary, '', :cols => 22, :rows => 5, :class => 'round textarea-100') %></td>
+    </tr>
+    <tr>
+      <th><%= label_tag(:content) %></th>
+      <td><%= text_area_tag(:content, '', :cols => 50, :rows => 10, :class => 'round textarea-100') %></td>
+    </tr>
+    <tr>
+      <th><%= label_tag(:public) %></th>
+      <td><%= check_box_tag(:public) %></td>
+    </tr>
+  </table>
+  <div class="clearfix"></div>
+  <div class="form-buttons">
+    <%= submit_tag('create clipping', :class => 'button') %>
+  </div>
+<% end %>

@@ -1,0 +1,51 @@
+<% @page_title = 'Edit Clipping: #{@clipping.title}' %>
+<%= link_to('<< Back to List', {:action => 'list'}, :class => 'back-link') %>
+<h1 class="span12 ribbon">edit clipping</h1>
+<%= form_tag(:action => 'update') do %>
+  <% if @clipping.errors.any? %>
+    <div class="error_messages">
+      <h2>please correct the following errors:</h2>
+      <ul>
+        <% for message in @clipping.errors.full_messages %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <table summary="clipping form fields" class="float-table">
+    <tr>
+      <th>content is</th>
+      <td><%= @clipping.content_type %></td>
+    </tr>
+    <tr>
+      <th><%= label_tag(:title) %></th>
+      <td><%= text_field_tag(:title, @clipping.title, :class => 'round') %></td>
+    </tr>
+    <% if @clipping.content_type === 'html' %>
+      <tr>
+        <th><%= label_tag(:url) %></th>
+        <td><%= text_field_tag(:url, @clipping.url, :class => 'round') %></td>
+      </tr>
+    <% elsif @clipping.content_type === 'text' %>
+      <tr>
+        <th><%= label_tag(:summary) %></th>
+        <td><%= text_area_tag(:summary, @clipping.summary, :cols => 22, :rows => 5, :class => 'round textarea-100') %></td>
+      </tr>
+      <tr>
+        <th><%= label_tag(:content) %></th>
+        <td><%= text_area_tag(:content, @clipping.stored_clipping.content, :cols => 50, :rows => 10, :class => 'round textarea-100') %></td>
+      </tr>
+    <% end %>
+    <tr>
+      <th><%= label_tag(:public) %></th>
+      <td>
+        <%= hidden_field_tag(:public, 0) %>
+        <%= check_box_tag(:public, 1, @clipping.public) %>
+      </td>
+    </tr>
+  </table>
+  <div class="clearfix"></div>
+  <div class="form-buttons">
+    <%= submit_tag('update clipping', :class => 'button') %>
+  </div>
+<% end %>

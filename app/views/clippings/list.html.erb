@@ -1,0 +1,13 @@
+<% @page_title = "Clippings" %>
+<h1 class="span12 ribbon">clippings</h1>
+<%= link_to('add a clipping', {:action => 'new'}, :class => 'action new') %>
+<% unless @clippings.nil? %>
+  <%= form_tag clippings_path, :method => 'get', :id => 'clippings-search-form' do %>
+    <span id="clippings-search-loader"></span>      
+    <%= text_field_tag :search, params[:search], :class => 'round', :id => 'clippings-search-textbox' %>
+  <% end %>
+  <div class="clearfix"></div>
+  <div id="clippings-list">
+    <%= render :partial => 'clippings', :layout => false, :locals => { :clippings => @clippings } %>
+  </div>
+<% end %>

@@ -1,0 +1,8 @@
+<% @page_title = 'Home' %>
+<h1 class="span12 ribbon">home</h1>
+<% if !current_user %>
+  <span class="offset4 span4">
+    <%= link_to 'Sign up', signup_path, :class => 'button button-large round' %>
+    <span class="button-large">It's fun!</span>
+  </span>
+<% end %>

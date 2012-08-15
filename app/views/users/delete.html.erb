@@ -1,0 +1,8 @@
+<% @page_title = 'Delete Profile' %>
+<%= link_to("<< Back to Profile", {:action => 'show'}, :class => 'back-link') %>
+<h1 class="span12 ribbon">delete profile</h1>
+<%= form_for(:user, :url => {:action => 'destroy', :id => @user.id}) do |f| -%>
+  <span class="strong"><%= "#{@user.first_name} #{@user.last_name}" %>,</span>
+  <span> are you sure you want to permanently delete your account?</span>
+  <%= submit_tag('delete it!', :class => 'button') %>
+<% end %>

@@ -1,0 +1,33 @@
+<% @page_title = 'Help' %>
+<h1 class="span12 ribbon">help!</h1>
+<div class="help">
+  <ul>
+    <li>
+      <span>You don't have to copy and paste urls, just use this bookmarklet. Drag the clip-it button to your bookmarks bar. When you're on a website that you want to clip, just click the "clip-it" bookmarklet and you're finished</span>
+    </li>
+    <li>
+      <span>
+        <a class="button" href="javascript:(function(){function b(g){var m=document,k=m.createElement('script'),f=m.body,h=m.location,i='';try{if(!f){throw (0)}i=m.title;m.title='(Saving...) '+m.title;k.setAttribute('src',h.protocol+'//yoursite.com/clipping/create?content_type=html&public='+g+'&url='+encodeURIComponent(h.href));f.appendChild(k);m.title=i;return 0}catch(j){alert('The page has not loaded. Please try again in a moment.')}}function a(e,h){var d=document.createElement('script');d.src=e;var f=document.getElementsByTagName('head')[0];var g=false;d.onload=d.onreadystatechange=function(){if(!g&&(!this.readyState||this.readyState=='loaded'||this.readyState=='complete')){g=true;h();d.onload=d.onreadystatechange=null;f.removeChild(d)}};f.appendChild(d)}function c(d){var f=document.createElement('link');f.href=d;f.rel='stylesheet';f.type='text/css';var e=document.getElementsByTagName('head')[0];e.appendChild(f)}a('http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js',function(){a('http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js',function(){c('http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/smoothness/jquery-ui.css');var d=$('<div></div>').dialog({autoOpen:false,buttons:{Yes:function(){b(1);$(this).dialog('close')},No:function(){b(0);$(this).dialog('close')}},height:'auto',modal:true,title:'Would you like to make this url public?',width:'auto'});d.html(document.location.href);d.dialog('open')})})})();" title="Read Later">
+          Clip-it!
+        </a>
+        <span class="clipit-arrow">
+           ← 
+        </span>
+        <span class="idk">
+          Drag me to your Bookmarks Bar.
+        </span>
+      </span>
+    </li>
+    <li class="clearfix">
+      <div class="offset1 span8">
+        <iframe width="640" height="480" src="http://www.youtube.com/embed/-bpQex7WOIE?rel=0" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </li>
+    <li>
+      <span>We use <%= link_to "gravatar", "http://gravatar.com" %> as our avatar service. Sign up at  <%= link_to 'gravatar.com', 'http://gravatar.com' %> . Make sure to use the email address that you used to sign up for liveclippings.</span>
+    </li>
+    <li>
+      <span>Are you having a hard time with something on the site? Please leave us <%= link_to 'feedback', 'feedback' %>.</span>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,8 @@
+<% @page_title = 'Sign up' %>
+<h1 class="span12 ribbon">sign up</h2>
+<%= form_for(@user, :url => {:action => 'create'}) do |f| %>
+  <%= render(:partial => 'form', :locals => {:f => f}) %>
+  <div class="form-buttons">
+    <%= submit_tag('sign up', :class => 'button') %>
+  </div>
+<% end %>

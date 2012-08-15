@@ -1,0 +1,20 @@
+<% @page_title = "Followings" %>
+<h1 class="span12 ribbon">followings</h1>
+<div>
+  you're following <%= pluralize(@followings.size, 'person') %>... 
+  <%= link_to('find people to follow', {:action => 'search'}, :class => 'search') %>
+</div>
+<% if @followings.size > 0 %>
+  <% @followings.each do |following| %>
+    <div class="polaroid">
+      <%= link_to("unfollow/#{following.following.id}", :confirm => 'Are you sure?') do %>
+        <%= content_tag(:span) do %>
+          <%= image_tag("http://www.gravatar.com/avatar/#{following.following.user_hash}?d=wavatar&s=100", :class => "gravatar") %>
+        <% end %>
+        <%= content_tag(:span, following.following.username) %>
+        <%= content_tag(:span, 'delete me!') %>
+      <% end %>
+    </div>
+  <% end %>
+  <div class="clearfix"></div>
+<% end %>

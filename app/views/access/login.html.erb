@@ -1,0 +1,9 @@
+<% @page_title = 'Sign in' %>
+<h1 class="span12 ribbon">sign in</h2>
+<div class="login">
+  <%= form_tag(:action => 'attempt_login') do %>
+    <%= text_field_tag(:username, '', :class => 'round', :placeholder => 'Username') %>
+    <%= password_field_tag(:password, '', :class => 'round', :placeholder => 'Password') %>
+    <%= submit_tag('sign in', :class => 'button') %>
+  <% end %>
+</div>

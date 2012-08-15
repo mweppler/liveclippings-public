@@ -1,0 +1,61 @@
+<% @page_title = 'Show Clipping' %>
+<%= link_to('<< Back to List', {:action => 'list'}, :class => 'back-link') %>
+<h1 class="span12 ribbon">clipping details</h1>
+<table summary="clipping detail view">
+  <tr>
+    <th>content is:</th>
+    <td><%= @clipping.content_type %></td>
+  </tr>
+  <tr>
+    <th>title</th>
+    <td><%= @clipping.title %></td>
+  </tr>
+  <% unless @clipping.summary.nil? or @clipping.summary == '' %>
+    <tr>
+      <th>summary</th>
+      <td><%= @clipping.summary %></td>
+    </tr>
+  <% end %>
+  <% if @clipping.content_type === 'html' %>
+    <tr>
+      <th>url</th>
+      <td><%= link_to(truncate(@clipping.url, :length => 75, :omission => '...'), @clipping.url, :class => 'clipping url') %></td>
+    </tr>
+  <% end %>
+  <tr>
+    <th>content</th>
+    <td><%= content_tag :pre, raw(@clipping.stored_clipping.content) %></td>
+  </tr>
+  <% if @clipping.user.id == current_user.id %>
+    <tr>
+      <th>is public</th>
+      <td><%= @clipping.public ? 'yes' : 'no' %></td>
+    </tr>
+    <tr>
+      <th>is favorite</th>
+      <td><%= @clipping.favorite ? 'yes' : 'no' %></td>
+    </tr>
+    <tr>
+      <th>has been read</th>
+      <td><%= @clipping.read ? 'yes' : 'no' %></td>
+    </tr>
+    <tr>
+      <th>is archived</th>
+      <td><%= @clipping.archive ? 'yes' : 'no' %></td>
+    </tr>
+    <tr>
+      <th>created on</th>
+      <td><%= @clipping.created_at.strftime("%m-%d-%Y %I:%M%p") %></td>
+    </tr>
+    <tr>
+      <th>updated on</th>
+      <td><%= @clipping.updated_at.strftime("%m-%d-%Y %I:%M%p") %></td>
+    </tr>
+  </table>
+  <div class="clipping actions">
+    <%= link_to("Edit", {:action => 'edit', :id => @clipping.id}, :class => 'button') %>
+    <%= link_to("Delete", {:action => 'delete', :id => @clipping.id}, :class => 'button') %>
+  </div>
+<% else %>
+  </table>
+<% end %>

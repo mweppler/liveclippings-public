@@ -1,0 +1,59 @@
+<% @page_title = "Stream" %>
+<div class="stream">
+  <h1 class="span12 ribbon">Stream</h1>
+  <%= link_to('find people to follow', {:controller => 'followings', :action => 'search'}, :class => '') %>
+  <% if @clippings.size > 0 %>
+    <%= will_paginate @clippings %>
+    <div class="clearfix"></div>
+    <% @clippings.each do |clipping| %>
+      <div class="<%= cycle('odd', 'even') %>">
+        <div class="polaroid">
+          <%= content_tag(:span) do %>
+            <%= image_tag("http://www.gravatar.com/avatar/#{clipping.user.user_hash}?d=wavatar&s=75", :class => "gravatar") %>
+          <% end %>
+          <%
+            font_size = "font-size:"
+            case clipping.user.username.size
+              when 1..10
+                font_size << "100%;"
+              when 11
+                font_size << "95%;"
+              when 12
+                font_size << "86%;"
+              when 13
+                font_size << "80%;"
+              when 14
+                font_size << "73%;"
+              when 15..16
+                font_size << "67%;"
+              when 17..18
+                font_size << "60%;"
+              when 19
+                font_size << "54%;"
+              when 20..255
+                clipping.user.username = clipping.user.username[0..17]
+                font_size << "54%;"
+            end
+          %>
+          <%= content_tag(:span, clipping.user.username, :style => "#{font_size}") %>
+        </div>
+        <div class="stream-clipping span9">
+          <%= content_tag(:div, "#{clipping.title} / Clipped on: #{clipping.updated_at.strftime("%m-%d-%Y")}") %>
+          <%= content_tag(:div) do %>
+            <% if clipping.content_type == 'html' %>
+              <%= link_to(truncate(clipping.url, :length => 75, :omission => '...'), clipping.url, :class => 'clipping url') %>
+            <% else %>
+              <%= link_to('clipping details', {:action => 'show', :id => clipping.id}, :class => '') %>
+            <% end %>
+          <% end %>
+          <%= content_tag(:div) do %>
+            <%= link_to('Clip-it!', {:action => 'copy', :id => clipping.id}, :class => 'button') %>
+          <% end %>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+    <% end %>
+    <%= will_paginate @clippings %>
+    <div class="clearfix"></div>
+  <% end %>
+</div>

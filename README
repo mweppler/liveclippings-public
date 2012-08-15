@@ -1,0 +1,158 @@
+
+Version: 20120219
+Updates Include:
+  Search
+  - Added sphinx search
+  - Added migration for sphinx delayed deltas
+  - Fixed an issue where pagination of search results failed
+
+  Pagination
+  - Rewriting urls to friendlier format
+  - Added necessary routes
+
+--mweppler@gmail.com
+
+===============================================================================
+
+Version: 20120212
+Updates Include:
+  CSS
+  - Resolved an issue in firefox where table elements were showing up outside content area (.float-table)
+  - Added CSS3PIE
+  - Cleaned up some of the css syntax in style.css
+
+--mweppler@gmail.com
+
+===============================================================================
+
+Version: 20120205
+Updates Include:
+  CSS
+  - Integrated Twitter Bootstrap
+  - Cleaned up current styles
+  - Restyled most in not all of the pages, some minor, some more
+  - Moved my styles into html5bp style.css
+  - Not including default.css
+
+  - Redirect Logged in users 'Home' page to clippings#list
+
+  - Added better default gravatar images
+
+--mweppler@gmail.com
+
+===============================================================================
+
+Version: 20120204
+Updates Include:
+  Text clippings now keep their formatting by wrapping in a <pre> tag.
+
+--mweppler@gmail.com
+
+===============================================================================
+
+Version: 20111211
+Updates Include:
+  Added search feature to clippings via title and content.
+  Added embed youtube video tutorial of Clip-it bookmarklet.
+
+--mweppler@gmail.com
+
+===============================================================================
+
+Version: 20111209
+Updates Include:
+  Fixed an issue where <title> was not being parsed correctly.
+  If <title> was > than 255 chars, clipping would not be saved. Now I just grab the first 255 chars.
+  Added styling for other browsers
+
+--mweppler@gmail.com
+
+===============================================================================
+
+Version: 20111031
+Updates Include:
+  Format regular text clippings
+  Basic formatting for html clippings (though I do not provide a direct link to show content)
+  View public clipping without grabbing it.
+  Beta ribbon.
+  Fixed an issue with password reset. Url had invalid characters.
+
+--mweppler@gmail.com
+
+===============================================================================
+
+Version: 20111027
+Updates Include:
+  Using mechanize instead of open-uri
+  Fixed an issue when creating a clipping and the url is 'https://' or redirected to an 'https://' page
+  Added polaroid tiny to stream users along with users username.
+  Added new bookmarklet to repository
+  Implemented Password reset
+
+--mweppler@gmail.com
+
+===============================================================================
+
+Version: 20111024
+Updates Include:
+  Added query ui 1.8.16
+  Fixed an issue when creating a clipping and the url not having 'http://' would result in page not found.
+  Changed clipping attributes from displaying true/false to yes/no
+  Polaroids now display more than one across the page.
+  Delete following relationship
+  Added pagination to clippings and stream
+
+--mweppler@gmail.com
+
+===============================================================================
+
+Version: 20111023
+Updates Include:
+  Added md5 hash of email
+  Pull avatars from gravatar
+  Polaroid pictures
+  Added following relationships
+
+  Created Following Relationship
+  Ability to search for users and follow them
+  View/delete your followings
+
+  Added public/private field to Clipping
+  Added Stream (Followed Users Public Clippings)
+  Copy Public Clipping
+
+--mweppler@gmail.com
+
+===============================================================================
+
+Version: 20111020
+Updates Include:
+  User Feedback
+  Styling
+
+--mweppler@gmail.com
+
+===============================================================================
+
+Version: 20111019
+Updates to add clipping
+Functionality Includes:
+  New clipping form is more dynamic based on content type.
+  If content type is html passing just the url makes title & content fields automatically filled.
+  First attempt at the bookmarklet. Seems to work!
+
+--mweppler@gmail.com
+
+===============================================================================
+
+Version: 20111017
+Release to public, only informed a few people.
+Functionality Includes:
+  Simple Sign up process.
+  Sign in/out
+  Ability to create/edit Clippings.
+  Ability to edit profile.
+
+--mweppler@gmail.com
+
+===============================================================================

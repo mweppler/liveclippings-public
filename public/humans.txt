@@ -1,0 +1,17 @@
+/* the humans responsible & colophon */
+/* humanstxt.org */
+
+
+/* TEAM */
+  <web developer>: <matt weppler>
+  Site: http://mattweppler.info
+  Twitter: mattweppler
+  Location: 
+
+/* THANKS */
+  Names (& URL): 
+
+/* SITE */
+  Standards: HTML5, CSS3
+  Components: Modernizr, jQuery
+  Software:

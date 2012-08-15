@@ -1,0 +1,10 @@
+.bundle
+.powrc
+config/development.sphinx.conf
+db/*.sqlite3
+db/sphinx
+git_commit_history.txt
+log/*.log
+tmp/
+
+

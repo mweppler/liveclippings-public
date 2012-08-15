@@ -1,0 +1,33 @@
+<% if @clippings.size > 0 %>
+  <%= will_paginate @clippings %>
+  <div class="clearfix"></div>
+  <% @clippings.each do |clipping| %>
+    <% unless clipping.nil? %>
+      <div class="<%= cycle('odd', 'even') %>">
+        <div class="stream-clipping span10">
+          <%= content_tag(:div, "#{clipping.title} / Clipped on: #{clipping.updated_at.strftime("%m-%d-%Y")}") %>
+          <%= content_tag(:div) do %>
+            <% if clipping.content_type == 'html' %>
+              <%= link_to(truncate(clipping.url, :length => 75, :omission => '...'), clipping.url, :class => 'clipping url') %>
+            <% else %>
+              <%= link_to('clipping details', {:action => 'show', :id => clipping.id}, :class => '') %>
+            <% end %>
+          <% end %>
+          <%= content_tag(:div) do %>
+            <% if clipping.content_type == 'html' %>
+              <%= link_to('read here', {:action => 'show', :id => clipping.id}, :class => 'button') %>
+            <% end %>
+            <%= link_to('edit', {:action => 'edit', :id => clipping.id}, :class => 'button') %>
+            <%= link_to('delete', {:action => 'delete', :id => clipping.id}, :class => 'button') %>
+          <% end %>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+    <% end %>
+  <% end %>
+  <%= will_paginate @clippings %>
+  <div class="clearfix"></div>
+<% end %>
+<% if @has_updated %>
+  <%= content_tag(:script,'rewritePaginationUrls()') %>
+<% end %>

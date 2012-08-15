@@ -1,0 +1,39 @@
+<% @page_title = 'Search for Users' %>
+<%= link_to("<< Back to List", {:action => 'followings'}, :class => 'back-link') %>
+<div class="following search">
+  <h1 class="span12 ribbon">search for people to follow</h1>
+  <%= form_tag(:action => 'search') do %>
+    <%= label_tag(:search_by) %>
+    <select name="search_by">
+      <option value="">*Category</option>
+      <option value="username">Username</option>
+      <option value="email">Email</option>
+      <option value="last_name">Last Name</option>
+    </select>
+    <%= text_field_tag(:search, '', :class => 'round', :placeholder => 'search for...') %>
+    <%= submit_tag('search', :class => 'button') %>
+  <% end %>
+</div>
+<% unless @users.nil? %>
+  <div class="search-results">
+    <% @users.each do |user| %>
+      <div class="polaroid">
+        <%= link_to "follow/#{user.id}" do %>
+          <%= content_tag(:span) do %>
+            <%= image_tag("http://www.gravatar.com/avatar/#{user.user_hash}?d=wavatar&s=200", :class => "gravatar") %>
+          <% end %>
+          <%= content_tag(:span, 'follow my clippings!') %>
+          <%= content_tag(:span, user.username, :class => 'strong') %>
+          <%= content_tag(:span, "clipping since:") %>
+          <%= content_tag(:span, "#{user.created_at.strftime("%m-%d-%Y")}") %>
+        <% end %>
+      </div>
+    <% end %>
+    <div class="clearfix"></div>
+  </div>
+<% else %>
+  <div>
+    <% content_tag :p, '...or select from one of the 5 most recent clippers below' %>
+    <% # Display people to follow %>
+  </div>
+<% end %>

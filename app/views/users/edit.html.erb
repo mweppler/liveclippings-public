@@ -1,0 +1,12 @@
+<% @page_title = 'Edit Profile' %>
+<%= link_to("<< Back to Profile", {:action => 'show'}, :class => 'back-link') %>
+<h1 class="span12 ribbon">edit profile</h1>
+<%= form_for(:user, :url => {:action => 'update', :id => @user.id}) do |f| %>
+  <%= render(:partial => 'form', :locals => {:f => f}) %>
+  <div class="form-buttons">
+    <%= submit_tag('update profile', :class => 'button') %>
+  </div>
+<% end %>
+<%= content_tag :span do %>
+  We use <%= link_to "gravatar", "http://gravatar.com" %> as our avatar service. Sign up at  <%= link_to 'gravatar.com', 'http://gravatar.com' %> . Make sure to use the email address that you used to sign up for liveclippings.
+<% end %>

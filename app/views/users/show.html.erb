@@ -1,0 +1,17 @@
+<% @page_title = 'Profile' %>
+<h1 class="span12 ribbon">profile</h1>
+<div class="offset3 span6">
+  <div class="profile polaroid">
+    <%= content_tag(:span) do %>
+      <%= image_tag("http://www.gravatar.com/avatar/#{@user.user_hash}?d=wavatar&s=400", :class => "gravatar") %>
+    <% end %>
+    <%= content_tag(:span, "username: #{@user.username}") %>
+    <%= content_tag(:span, "api token: #{@user.api_token}") unless @user.api_token.nil? %>
+    <%= content_tag(:span, "#{@user.first_name} #{@user.last_name}") if false %>
+    <%= content_tag(:span, "clipping since: #{@user.created_at.strftime("%m-%d-%Y")}") %>
+    <%= content_tag(:span) do %>
+      <%= link_to("Edit", {:action => 'edit', :id => @user.id}, :class => 'profile') %> / 
+      <%= link_to("Delete", {:action => 'delete', :id => @user.id}, :class => 'profile') %>
+    <% end %>
+  </div>
+</div>
